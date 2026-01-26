@@ -11,7 +11,6 @@ export function mountDisciplineSankey(containerSelector) {
     const raw = await dataPromise
     const rows = raw.filter(d => d.discipline && d.medal_type)
 
-    // keep top disciplines to avoid an unreadable sankey
     const disciplineTotals = d3.rollups(rows, v => v.length, d => d.discipline)
       .sort((a, b) => d3.descending(a[1], b[1]))
 
@@ -38,7 +37,6 @@ export function mountDisciplineSankey(containerSelector) {
     }
 
     const medalTypes = Array.from(new Set(cleaned.map(d => d.medal_type)))
-    // stable ordering for medal nodes
     const medalOrder = ['Gold Medal', 'Silver Medal', 'Bronze Medal']
     medalTypes.sort((a, b) => d3.ascending(medalOrder.indexOf(a), medalOrder.indexOf(b)))
 
@@ -80,7 +78,6 @@ export function mountDisciplineSankey(containerSelector) {
 
     const { nodes: sankeyNodes, links: sankeyLinks } = sankeyGen(graph)
 
-    // links
     g.append('g')
       .selectAll('path')
       .data(sankeyLinks)
@@ -89,7 +86,6 @@ export function mountDisciplineSankey(containerSelector) {
       .attr('d', sankeyLinkHorizontal())
       .attr('stroke-width', d => Math.max(1, d.width))
 
-    // nodes
     const node = g.append('g')
       .selectAll('g')
       .data(sankeyNodes)

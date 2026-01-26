@@ -113,8 +113,6 @@ export function mountCumulativeLines(containerSelector) {
       .style('font-weight', '600')
       .style('fill', d => d.color)
       .text(d => d.country)
-
-    // 8. 轴标题
     axisLabel(svg, 'Date', margin.left + innerW / 2, height - 5, 0, 'middle')
     axisLabel(svg, 'Cumulative Medals', 15, margin.top + innerH / 2, -90, 'middle')
   })

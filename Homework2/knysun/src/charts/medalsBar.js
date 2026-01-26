@@ -67,7 +67,6 @@ export function mountMedalsBar(containerSelector) {
       .attr('height', d => innerH - y(d.Total))
       .attr('rx', 4)
 
-    // simple value labels
     g.selectAll('.bar-label')
       .data(data, d => d.country_code || d.country)
       .join('text')
