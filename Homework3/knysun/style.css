@@ -1,0 +1,110 @@
+:root {
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+body { margin: 0; background: #0b1020; color: #e9eefc; }
+#app { min-height: 100vh; }
+
+#page { max-width: 1200px; margin: 0 auto; padding: 18px; }
+#header h1 { margin: 0 0 6px 0; font-size: 22px; }
+.subtitle { margin: 0; opacity: 0.85; font-size: 13px; }
+
+#dashboard{
+  margin-top: 14px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 500px 400px;
+  gap: 14px;
+}
+
+.card{
+  background: rgba(255,255,255,0.06);
+  border: 1px solid rgba(255,255,255,0.10);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.card .card-head{
+  padding: 12px 14px 0 14px;
+}
+
+.card h2{
+  margin: 0;
+  font-size: 16px;
+}
+
+.hint{
+  margin: 6px 0 10px 0;
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+.chart {
+  flex: 1;
+  padding: 0;
+  min-height: 0; 
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.span-2{ grid-column: 1 / span 2; }
+
+#footer{
+  margin-top: 10px;
+  opacity: 0.8;
+  font-size: 12px;
+}
+
+.axis text { fill: rgba(233,238,252,0.9); font-size: 11px; }
+.axis path, .axis line { stroke: rgba(233,238,252,0.25); }
+.axis-label { fill: rgba(233,238,252,0.85); font-size: 12px; }
+
+rect { fill: rgba(120, 190, 255, 0.85); }
+.bar-label {
+  font-size: 11px;
+  font-weight: 600;
+}
+
+
+.line{
+  fill: none;
+  stroke: rgba(255,255,255,0.85);
+  stroke-width: 2;
+  opacity: 0.9;
+}
+.end-label{ fill: rgba(233,238,252,0.85); font-size: 11px; }
+
+.sankey-link{
+  fill: none;
+  stroke: rgba(233,238,252,0.25);
+  stroke-opacity: 0.7;
+}
+
+.sankey-node rect{
+  fill: rgba(255, 205, 120, 0.85);
+  stroke: rgba(0,0,0,0.2);
+}
+
+.sankey-label{
+  fill: rgba(233,238,252,0.9);
+  font-size: 11px;
+}
+
+@media (max-width: 900px){
+  #dashboard{
+    grid-template-columns: 1fr;
+    grid-template-rows: 380px 360px 360px;
+  }
+  .span-2{ grid-column: 1; }
+}
